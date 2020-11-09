@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from weather.views import weather_home, login_form
+from weather.views import weather_home, login_form, search_location
+
+app_name = 'weather'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('weather/', weather_home, name='weather_home'),
+    path('search_weather/<str:loc_key>/', weather_home, name='weather_home'),
+    path('search_location/', search_location, name='search_location'),
     path('', login_form, name='login_form'),
 ]

@@ -1,0 +1,17 @@
+{% include 'base.html' %}
+
+{% block replace_content %}
+<form action="{% url 'search_location' %}" method="GET">
+    {% csrf_token %}
+    <input name="location_key" />
+    <input type="submit" value="Get Weather"/>
+</form>
+
+<ul class="list-group">
+    {% for loc_key, value in location_dict.items %}
+        <li><a href="{% url 'weather_home' loc_key %}">{{ value }}</a></li></li>
+    {% endfor %}
+</ul>
+
+<p>Temperature: {{ temperature }}</p>
+{% endblock %}
