@@ -9,9 +9,18 @@
 
 <ul class="list-group">
     {% for loc_key, value in location_dict.items %}
-        <li><a href="{% url 'weather_home' loc_key %}">{{ value }}</a></li></li>
+        <li><a href="{% url 'weather_home' loc_key value %}">{{ value }}</a></li></li>
     {% endfor %}
 </ul>
 
-<p>Temperature: {{ temperature }}</p>
+
+    {% for weather_obj in weather %}
+    <div class="card"></div>
+        <div class="card-body">
+            <h5 class="card-title">{{ weather_obj.area_name }}</h5>
+            <p class="card-text">{{ weather_obj.temperature }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
 {% endblock %}

@@ -21,7 +21,7 @@ app_name = 'weather'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('search_weather/<str:loc_key>/', weather_home, name='weather_home'),
+    path('search_weather/<str:loc_key>/<str:area_name>/', weather_home, name='weather_home'),
     path('search_location/', search_location, name='search_location'),
     path('', login_form, name='login_form'),
 ]
